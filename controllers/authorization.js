@@ -1,4 +1,4 @@
-const redisClient = require('./signin');
+const redisClient = require('./signin').redisClient;
 
 const requireAuth = (req, res, next) => {
     const { authorization } = req.headers;
@@ -15,5 +15,5 @@ const requireAuth = (req, res, next) => {
 
 
 module.exports = {
-    requireAuth
+    requireAuth: requireAuth
 }

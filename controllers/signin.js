@@ -8,6 +8,7 @@ const redisClient = redis.createClient(process.env.REDIS_URI);
 
 
 const handleSignin = (db, bcrypt, req, res) => {
+  
   const { email, password } = req.body;
   if (!email || !password) {
     return Promise.reject('incorrect form submission');
@@ -53,14 +54,15 @@ const createSessions = (user) => {
   const { email, id } = user;
   const token = signToken(email);
   return setToken(token, id)
-  .then(() => { return { success: 'true', userId: id, token, user }
+  .then(() => { 
+    return { success: 'true', userId: id, token }
   })
   .catch(console.log)
 }
 
 
 const SigninAuthentication = (db, bcrypt) => (req, res) => {
-  const { authorization } = req.header;
+  const { authorization } = req.headers;
   return authorization ? getAuthTokenId(req, res) 
   : handleSignin(db, bcrypt, req, res)
   .then(data => 
