@@ -50,7 +50,7 @@ const setToken = (key, value) => {
 }
 
 const createSessions = (user) => {
-  // JWT tokem, return user data
+  // JWT token, return user data
   const { email, id } = user;
   const token = signToken(email);
   return setToken(token, id)
@@ -73,5 +73,5 @@ const SigninAuthentication = (db, bcrypt) => (req, res) => {
 
 module.exports = {
   SigninAuthentication: SigninAuthentication,
-  redisClient: redisClient
+  createSessions: createSessions
 }
