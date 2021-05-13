@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
+    "test": "echo \"add tests please\"",
     "start": "nodemon server.js"
   },
   "keywords": [],
