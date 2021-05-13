@@ -27,7 +27,7 @@ const db = knex({
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:3001',
+  origin: 'https://granum-ego.herokuapp.com',
   optionsSuccessStatus: 200
 }
 
