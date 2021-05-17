@@ -43,6 +43,6 @@ app.post('/profile/:id', auth.requireAuth, (req, res) =>{ profile.handleProfileU
 app.put('/image', auth.requireAuth, (req, res) => { image.handleImage(req, res, db)})
 app.post('/imageurl', auth.requireAuth, (req, res) => { image.handleApiCall(req, res)})
 
-app.listen(3000, ()=> {
-  console.log('app is running on port 3000');
+app.listen($PORT, ()=> {
+  console.log('app is running');
 })
