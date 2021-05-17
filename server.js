@@ -13,6 +13,8 @@ const auth = require('./controllers/authorization')
 const dotenv = require('dotenv');
 dotenv.config();
 
+const PORT = process.env.PORT || 3000
+
 
 const db = knex({
   client: 'pg',
@@ -43,6 +45,6 @@ app.post('/profile/:id', auth.requireAuth, (req, res) =>{ profile.handleProfileU
 app.put('/image', auth.requireAuth, (req, res) => { image.handleImage(req, res, db)})
 app.post('/imageurl', auth.requireAuth, (req, res) => { image.handleApiCall(req, res)})
 
-app.listen(process.env.PORT || 3000, ()=> {
-  console.log('app is running on port 3000');
+app.listen(PORT, ()=> {
+  console.log(`app is running on port ${PORT}`);
 })
