@@ -12,12 +12,12 @@ services:
             POSTGRES_PASSWORD: 'YourPassword'
             POSTGRES_DB: smart-brain-docker
             POSTGRES_HOST: postgres
-            REDIS_URI: ${PORT}
+            REDIS_URI: redis://redis:6379
         links: 
             - postgres
             - redis
         ports: 
-            - "${PORT}:3000"
+            - "3000:3000"
         volumes:
             - ./:/usr/src/smart-brain-api
     # postgres
@@ -29,9 +29,9 @@ services:
             POSTGRES_HOST: postgres
         build: ./postgres
         ports:
-            - "${PORT}:5432"
+            - "5432:5432"
     # redis
     redis:
         image: redis
         ports:
-            - "${PORT}:6379"
+            - "6379:6379"
