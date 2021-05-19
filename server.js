@@ -25,14 +25,14 @@ const db = knex({
 
 const app = express();
 
-const corsOptions = {
-  origin: 'https://granum-ego.herokuapp.com',
-  optionsSuccessStatus: 200
-}
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://granum-ego.herokuapp.com/");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.use(morgan('combined'));
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/signin', signin.SigninAuthentication(db, bcrypt))
