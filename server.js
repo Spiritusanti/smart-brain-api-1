@@ -16,10 +16,8 @@ dotenv.config();
 const db = knex({
   client: 'pg',
   connection: {
-    host: process.env.DATABASE_URL,
-    user: process.env.POSTGRES_USER,
-    password: process.env.POSTGRES_PASSWORD,
-    database: process.env.POSTGRES_DB
+    connectString: process.env.DATABASE_URL,
+    ssl: true
   }
 });
 
