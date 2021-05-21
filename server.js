@@ -16,7 +16,7 @@ dotenv.config();
 const db = knex({
   client: 'pg',
   connection: {
-    host: process.env.POSTGRES_HOST,
+    host: process.env.DATABASE_URL,
     user: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DB
@@ -35,6 +35,8 @@ app.use(morgan('combined'));
 app.use(cors());
 app.use(bodyParser.json());
 
+
+app.get('/', console.log('this is working'))
 app.post('/signin', signin.SigninAuthentication(db, bcrypt))
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 app.get('/profile/:id', auth.requireAuth, (req, res) => { profile.handleProfileGet(req, res, db)})
