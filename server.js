@@ -13,8 +13,6 @@ const auth = require('./controllers/authorization')
 const dotenv = require('dotenv');
 dotenv.config();
 
-p
-
 const db = knex({
   client: 'pg',
   connection: {
