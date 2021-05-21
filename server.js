@@ -33,6 +33,9 @@ app.use(morgan('combined'));
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/', (req, res)=> {
+  res.send('this is working!');
+})
 
 app.post('/signin', signin.SigninAuthentication(db, bcrypt))
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
