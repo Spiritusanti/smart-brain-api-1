@@ -1,6 +1,5 @@
 build:
   docker:
     web: Dockerfile
-    postgres: postgres/Dockerfile
 run:
   web: npm start
