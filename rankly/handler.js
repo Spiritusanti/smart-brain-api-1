@@ -8,7 +8,7 @@ module.exports.rank = async (event) => {
   return {
     statusCode: 200,
     headers: {
-      'Access-Control-Allow-Origin': 'http://localhost:3001'
+      'Access-Control-Allow-Origin': 'https://granum-ego.herokuapp.com/'
     },
     body: JSON.stringify(
       {
